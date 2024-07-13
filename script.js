@@ -18,8 +18,15 @@ $(document).ready(function () {
 
                     // Loop through each product and display its title and images
                     response.products.forEach(function (product) {
-                        $('#h1').append('<p>' + product.title + '</p>');
-                        $('#imagesContainer').append('<img src="' + product.images[0] + '" width="100" />');
+                        $('#productCard').append(
+                            '<div class="card m-3" style="width: 18rem;">' +
+                            '<img src="' + product.images[0] + '" class="card-img-top img-thumbnail" alt="product image">' +
+                            '<div class="card-body">' +
+                            '<h5 class="card-title">' + product.title + '</h5>' +
+                            '<p class="card-text">' + product.description + '</p>' +
+                            '</div>' +
+                            '</div>'
+                        );
                     });
                 } else {
                     console.error('Invalid response format or no products found');
